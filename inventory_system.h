@@ -12,7 +12,7 @@
 using namespace std;
 
 string store_name = "Your store's";
-string currency = "RON";
+string currency = "£";
 ofstream fout("Inventory.file", ios::app);
 
 struct Item {
