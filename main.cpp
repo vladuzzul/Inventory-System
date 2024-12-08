@@ -12,7 +12,7 @@ int main() {
 
     while (option != 6){
         cout << "\n\n=== " << store_name << " Inventory System ===\n\n";
-        cout << "1. See store inventory\n2. Add item\n3. Get item info\n4. Supply stock\n5. Register sold item\n6. Save and leave\n\nOption: ";
+        cout << "1. See store inventory\n2. Add item\n3. Delete item\n4. Get item info\n5. Supply stock\n6. Register sold item\n7. Save and leave\n\nOption: ";
         cin >> option;
         cout << "\n";
         switch (option){
@@ -27,10 +27,16 @@ int main() {
             case 3:{
                 string name;
                 cout << "Enter the name of the item: "; cin >> name;
-                get_item(items, name);
+                delete_item(items, name);
                 break;
             }
             case 4:{
+                string name;
+                cout << "Enter the name of the item: "; cin >> name;
+                get_item(items, name);
+                break;
+            }
+            case 5:{
                 int quantity;
                 string name;
                 cout << "Enter the name of the supplied item: "; cin >> name;
@@ -38,7 +44,7 @@ int main() {
                 supply_item(items, name, quantity);
                 break;
             }
-            case 5:{
+            case 6:{
                 int quantity;
                 string name;
                 cout << "Enter the name of the sold item: "; cin >> name;
@@ -46,7 +52,7 @@ int main() {
                 sold_item(items, name, quantity);
                 break;
             }
-            case 6:{
+            case 7:{
                 cout << "Have a nice day!\n";
                 fout.close();
                 break;

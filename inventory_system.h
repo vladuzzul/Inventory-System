@@ -127,4 +127,16 @@ void sold_item(vector<Item> &items, const string item_name, const int quantity){
     cout << "Item not found!\n";
 }
 
+void delete_item(vector<Item> &items, const string& item_name){
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        if (it->name == item_name) {
+            items.erase(it);
+            save_item(items);
+            cout << "\nItem successfully deleted!\n";
+            return;
+        }
+    }
+    cout << "Item not found!\n";
+}
+
 #endif //INVENTORY_SYSTEM_INVENTORY_SYSTEM_H
