@@ -10,7 +10,7 @@ int main() {
 
     int option = 0;
 
-    while (option != 6){
+    while (option != 7){
         cout << "\n\n=== " << store_name << " Inventory System ===\n\n";
         cout << "1. See store inventory\n2. Add item\n3. Delete item\n4. Get item info\n5. Supply stock\n6. Register sold item\n7. Save and leave\n\nOption: ";
         cin >> option;
