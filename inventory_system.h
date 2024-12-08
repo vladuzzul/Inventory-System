@@ -26,6 +26,7 @@ void initialize(vector<Item>& items) {
     ifstream fin("Inventory.file");
     if (!fin.is_open()) {
         cout << "No inventory file found. Starting with an empty inventory.\n";
+        cout << "Keep hotdogs 1.50$\n";
         return;
     }
 
