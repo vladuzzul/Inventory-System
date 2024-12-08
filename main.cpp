@@ -12,7 +12,7 @@ int main() {
 
     while (option != 7){
         cout << "\n\n=== " << store_name << " Inventory System ===\n\n";
-        cout << "1. See store inventory\n2. Add item\n3. Delete item\n4. Get item info\n5. Supply stock\n6. Register sold item\n7. Save and leave\n\nOption: ";
+        cout << "1. See store inventory\n2. Add item\n3. Delete item\n4. Get item info\n5. Supply stock\n6. Register sold item\n7. Leave\n\nOption: ";
         cin >> option;
         cout << "\n";
         switch (option){
