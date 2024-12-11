@@ -22,6 +22,25 @@ struct Item {
     double price;
 };
 
+bool equal_strings(const string& lhs, const string& rhs){
+    if (lhs.size() != rhs.size()){
+        return false;
+    }
+
+    auto lit = cbegin(lhs);
+    auto rit = cbegin(rhs);
+
+    while (lit != cend(lhs) and rit != cend(rhs)){
+        if (toupper(*lit) != toupper(*rit)){
+            return false;
+        }
+        ++lit;
+        ++rit;
+    }
+    return true;
+}
+
+
 void initialize(vector<Item>& items) {
     ifstream fin("Inventory.file");
     if (!fin.is_open()) {
@@ -92,7 +111,7 @@ void add_item(vector<Item>& items) {
 
 void get_item(const vector<Item>& items, const string& item_name) {
     for (const auto& item : items) {
-        if (item.name == item_name) {
+        if (equal_strings(item.name, item_name)) {
             cout << "\n" << item.name << ": \n";
             cout << "   Id: " << item.id << "\n";
             cout << "   Quantity in stock: " << item.quantity << "\n";
@@ -105,7 +124,7 @@ void get_item(const vector<Item>& items, const string& item_name) {
 
 void supply_item(vector<Item> &items, const string item_name, const int quantity){
     for (auto &item : items){
-        if (item.name == item_name){
+        if (equal_strings(item.name, item_name)){
             item.quantity += quantity;
             save_item(items);
             cout << "\nItem successfully updated!\n";
@@ -117,7 +136,7 @@ void supply_item(vector<Item> &items, const string item_name, const int quantity
 
 void sold_item(vector<Item> &items, const string item_name, const int quantity){
     for (auto &item : items){
-        if (item.name == item_name){
+        if (equal_strings(item.name, item_name)){
             item.quantity -= quantity;
             save_item(items);
             cout << "Item successfully updated!\n";
@@ -130,7 +149,7 @@ void sold_item(vector<Item> &items, const string item_name, const int quantity){
 
 void delete_item(vector<Item> &items, const string& item_name){
     for (auto it = items.begin(); it != items.end(); ++it) {
-        if (it->name == item_name) {
+        if (equal_strings(it -> name, item_name)) {
             items.erase(it);
             save_item(items);
             cout << "\nItem successfully deleted!\n";
